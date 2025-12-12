@@ -276,32 +276,6 @@ const SectionCard = ({ section, index, onChange, onRemove }) => {
   );
 };
 const SectionCard2 = ({ section, index, onChange, onRemove }) => {
-  // const addParagraph = () => {
-  //   const updated = { ...section, paragraphs: [...section.paragraphs, ""] };
-  //   onChange(index, updated);
-  // };
-
-  // const removeParagraph = (paraIndex) => {
-  //   const updated = {
-  //     ...section,
-  //     paragraphs: section.paragraphs.filter((_, i) => i !== paraIndex)
-  //   };
-  //   onChange(index, updated);
-  // };
-
-  // const addPoint = () => {
-  //   const updated = { ...section, points: [...section.points, ""] };
-  //   onChange(index, updated);
-  // };
-
-  // const removePoint = (pointIndex) => {
-  //   const updated = {
-  //     ...section,
-  //     points: section.points.filter((_, i) => i !== pointIndex)
-  //   };
-  //   onChange(index, updated);
-  // };
-
   return (
     <div className="border border-gray-200 rounded-xl p-5 mb-4 bg-white hover:border-cc5f4d/30 transition-all duration-200">
       <div className="flex items-center justify-between mb-4">
@@ -479,7 +453,7 @@ export default function AddBlogPage() {
   const handleAddFAQ = () => {
     setBlog({
       ...blog,
-      faq: [...blog.faqs, { question: "", answer: "" }],
+      faqs: [...blog.faqs, { question: "", answer: "" }],
     });
   };
   const handleAddSection = () => {
@@ -501,7 +475,7 @@ export default function AddBlogPage() {
   const handleRemovefaq = (index) => {
     setBlog({
       ...blog,
-      faq: blog.faqs.filter((_, i) => i !== index),
+      faqs: blog.faqs.filter((_, i) => i !== index),
     });
   };
 
@@ -630,6 +604,7 @@ export default function AddBlogPage() {
                   value={blog.title}
                   onChange={(e) => setBlog({ ...blog, title: e.target.value })}
                   placeholder="Enter blog title..."
+                  required
                 />
               </div>
               <div>
@@ -650,6 +625,7 @@ export default function AddBlogPage() {
                     setBlog({ ...blog, service: e.target.value })
                   }
                   placeholder="e.g., digital-marketing"
+                  required
                 />
               </div>
               <div>
@@ -659,6 +635,7 @@ export default function AddBlogPage() {
                   value={blog.city}
                   onChange={(e) => setBlog({ ...blog, city: e.target.value })}
                   placeholder="e.g., patiala"
+                  required
                 />
               </div>
               <div>
@@ -668,6 +645,7 @@ export default function AddBlogPage() {
                   value={blog.tag}
                   onChange={(e) => setBlog({ ...blog, tag: e.target.value })}
                   placeholder="e.g., Digital Marketing"
+                  required
                 />
               </div>
               <div>
@@ -678,6 +656,7 @@ export default function AddBlogPage() {
                   placeholder="e.g., April 29, 2025"
                   value={blog.date}
                   onChange={(e) => setBlog({ ...blog, date: e.target.value })}
+                  required
                 />
               </div>
               <div className="md:col-span-2">
@@ -690,6 +669,7 @@ export default function AddBlogPage() {
                     setBlog({ ...blog, description: e.target.value })
                   }
                   placeholder="Enter a brief description of the blog..."
+                  required
                 />
               </div>
             </div>
@@ -714,6 +694,7 @@ export default function AddBlogPage() {
                       ...blog,
                       meta: { ...blog.meta, title: e.target.value },
                     })
+
                   }
                   placeholder="SEO title for search engines..."
                 />
